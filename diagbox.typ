@@ -57,11 +57,13 @@
     
     place(start + right, padded_right)
     place(start.inv() + left, padded_left)
+    // Manually create the stroke of the cell so that they are above the diagonal line
+    place(top + left, rect(stroke: cell_stroke, width: 100%, height: 100%))
   }
   if parent not in (table, grid) {
     panic("Invalid value for object parameter, only 'table' and 'grid' are allowed")
   }
-  parent.cell(content, ..kwargs, stroke: cell_stroke, inset: 0pt, breakable: false)
+  parent.cell(content, ..kwargs, stroke: none, inset: 0pt, breakable: false)
 }
 
 /**
